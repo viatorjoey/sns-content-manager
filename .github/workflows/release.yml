@@ -1,0 +1,34 @@
+name: Publish release
+
+# When the installers in dist/ change, publish them as a GitHub Release.
+# Asset names stay the same for every version, so these links always point to the newest build:
+#   https://github.com/viatorjoey/sns-content-manager/releases/latest/download/SNSContentManager_EN.zip
+#   https://github.com/viatorjoey/sns-content-manager/releases/latest/download/SNSContentManager_KO.zip
+on:
+  push:
+    branches: [main]
+    paths: ["dist/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create or update release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VER="$(tr -d '[:space:]' < dist/VERSION)"
+          TAG="v${VER}"
+          NOTES="$(cat dist/RELEASE_NOTES.md 2>/dev/null || echo "SNS Content Manager ${TAG}")"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" dist/SNSContentManager_EN.zip dist/SNSContentManager_KO.zip --clobber
+            gh release edit "$TAG" --notes "$NOTES" --latest
+          else
+            gh release create "$TAG" dist/SNSContentManager_EN.zip dist/SNSContentManager_KO.zip \
+              --title "SNS Content Manager ${TAG}" --notes "$NOTES" --latest
+          fi
