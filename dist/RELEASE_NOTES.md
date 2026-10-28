@@ -1,10 +1,17 @@
-## SNS Content Manager v1.2.0
+## SNS Content Manager v1.2.1
+
+### Fixed in v1.2.1
+- **Windows:** the app window closed immediately on launch (window icon was passed as PNG; Windows needs .ico). Thanks to the user who reported it!
+- 윈도우에서 앱 창이 뜨기 직전에 꺼지던 문제를 고쳤어요.
+
+---
+### v1.2.0
 
 **Downloads** — one zip contains both the Mac and Windows installers.
 - 🇺🇸 English: **SNSContentManager_EN.zip**
 - 🇰🇷 한국어: **SNSContentManager_KO.zip**
 
-### What's new
+#### What's new in v1.2.0
 - 📱 **iPhone connection** — send links from the iPhone Share button (Shortcuts) or a phone page; the Mac/Windows computer records or downloads them. Works on the same Wi-Fi, or anywhere with Tailscale.
 - 🌐 English edition
 - Fixes: login window freeze on Mac, “Continue with Facebook” login, removed cookie-file import
