@@ -1,4 +1,12 @@
-## SNS Content Manager v1.2.1
+## SNS Content Manager v1.2.2
+
+### Fixed in v1.2.2
+- Downloads no longer get stuck at “Queued”: if one download fails (for example when the disk is full), the queue keeps going and the item shows a clear “Not enough disk space” message.
+- Checks free space before downloading (needs at least 2 GB).
+- 다운로드가 ‘대기 중’에서 멈추던 문제를 고쳤어요. 저장 공간이 부족하면 그 항목에 안내가 뜨고 나머지는 계속 받아요.
+
+---
+### v1.2.1
 
 ### Fixed in v1.2.1
 - **Windows:** the app window closed immediately on launch (window icon was passed as PNG; Windows needs .ico). Thanks to the user who reported it!
