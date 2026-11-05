@@ -1,4 +1,12 @@
-## SNS Content Manager v1.2.2
+## SNS Content Manager v1.2.3
+
+### Fixed in v1.2.3
+- **Instagram videos with sound but no picture on Mac:** Instagram now often serves VP9 video, which QuickTime/Preview can't show. Downloads now prefer H.264, and any VP9/AV1 video is converted to H.264 automatically.
+- Videos you already downloaded are converted slowly in the background (one at a time, low priority).
+- 인스타 영상이 맥에서 소리만 나오고 화면이 안 나오던 문제를 고쳤어요. 이미 받은 영상도 백그라운드에서 천천히 자동 변환돼요.
+
+---
+### v1.2.2
 
 ### Fixed in v1.2.2
 - Downloads no longer get stuck at “Queued”: if one download fails (for example when the disk is full), the queue keeps going and the item shows a clear “Not enough disk space” message.
